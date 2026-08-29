@@ -37,6 +37,7 @@ body {
   border-bottom: 1px solid #d9e2ec;
 
   flex-direction: column;
+
 }
 
 .logo {
@@ -262,8 +263,14 @@ body {
   color: #dbe8f3;
   background: #0b3562;
   flex-direction: column;
-}
 
+}
+@media (min-width: 1180px) {
+  .hero {
+    flex-direction: row;
+    align-items: center;
+  }
+}
 /*
   NO HAY MEDIA QUERIES INTENCIONALMENTE.
 
