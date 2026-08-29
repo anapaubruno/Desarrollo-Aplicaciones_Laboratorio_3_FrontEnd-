@@ -1,0 +1,469 @@
+/* ==========================================================================
+   1. RESET Y CONFIGURACIÓN BASE (Mobile First)
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Garantiza que padding y border no alteren el ancho total */
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.6;
+    color: #2d3748;
+    background-color: #f7fafc;
+}
+
+/* Tratamiento de imágenes fluidas para evitar desbordamientos horizontales */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+/* Espaciado general y tipografía de secciones en móvil */
+section {
+    padding: 2.5rem 1.25rem;
+}
+
+.servicios__encabezado,
+.actividades__encabezado {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.servicios__encabezado h2,
+.actividades__encabezado h2 {
+    font-size: 1.75rem;
+    color: #2b7a78;
+    margin-bottom: 0.5rem;
+}
+
+/* ==========================================================================
+   2. ESTILOS DE BOTONES EN MÓVIL
+   ========================================================================== */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.25rem;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: center;
+}
+
+.btn--primario,
+.btn--destacado {
+    background-color: #2b7a78;
+    color: #ffffff;
+}
+
+.btn--secundario {
+    background-color: #e2e8f0;
+    color: #2d3748;
+}
+
+.btn--linea {
+    border: 2px solid #ffffff;
+    color: #ffffff;
+}
+
+.btn--pequeno {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    background-color: #3a506b;
+    color: #ffffff;
+}
+/* ==========================================================================
+   3. HEADER (Mobile First - Flexbox unidimensional)
+   ========================================================================== */
+.header {
+    display: flex;
+    flex-direction: column; /* En móvil: elementos apilados verticalmente */
+    align-items: center;
+    gap: 1rem;
+    padding: 1.25rem 1.25rem;
+    background-color: #ffffff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header__logo a {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #2b7a78;
+}
+
+.nav__lista {
+    display: flex;
+    flex-wrap: wrap; /* Permite acomodar enlaces si la pantalla es muy estrecha */
+    justify-content: center;
+    gap: 1rem;
+}
+
+.nav__enlace {
+    font-weight: 500;
+    font-size: 0.95rem;
+    color: #4a5568;
+}
+
+/* ==========================================================================
+   4. HERO (Mobile First - Flexbox unidimensional)
+   ========================================================================== */
+.hero {
+    display: flex;
+    flex-direction: column; /* En móvil: texto arriba, imagen abajo */
+    align-items: center;
+    gap: 2rem;
+    background-color: #e6f4f1;
+}
+
+.hero__contenido {
+    text-align: center;
+}
+
+.hero__titulo {
+    font-size: 1.85rem;
+    color: #1a202c;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+.hero__descripcion {
+    font-size: 0.95rem;
+    color: #4a5568;
+    margin-bottom: 1.5rem;
+}
+
+.hero__acciones {
+    display: flex;
+    justify-content: center;
+    gap: 0.75rem;
+    flex-wrap: wrap; /* Evita desbordamientos en pantallas pequeñas */
+}
+
+.hero__imagen img {
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+/* ==========================================================================
+   5. SERVICIOS (Mobile First - CSS Grid inicial)
+   ========================================================================== */
+.servicios__contenedor {
+    display: grid;
+    grid-template-columns: 1fr; /* 1 columna vertical para pantallas pequeñas */
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.tarjeta-servicio {
+    display: flex;
+    flex-direction: column; /* Flexbox para la estructura interna de la tarjeta */
+    align-items: center;
+    text-align: center;
+    padding: 1.75rem 1.25rem;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.tarjeta-servicio__icono {
+    font-size: 2.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.tarjeta-servicio__titulo {
+    font-size: 1.2rem;
+    color: #2d3748;
+    margin-bottom: 0.5rem;
+}
+
+.tarjeta-servicio__descripcion {
+    font-size: 0.9rem;
+    color: #718096;
+    margin-bottom: 1.25rem;
+}
+
+.tarjeta-servicio__enlace {
+    margin-top: auto; /* Alinea el enlace al fondo usando Flexbox */
+    font-weight: 600;
+    color: #2b7a78;
+}
+
+/* ==========================================================================
+   6. ACTIVIDADES (Mobile First - Cuadrícula flexible con Grid)
+   ========================================================================== */
+.actividades__contenedor {
+    display: grid;
+    /* Cuadrícula flexible adaptativa sin depender exclusivamente de breakpoints */
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.tarjeta-actividad {
+    display: flex;
+    flex-direction: column; /* Estructura interna alineada verticalmente */
+    background-color: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.tarjeta-actividad__imagen img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover; /* Recorte fluido para mantener la legibilidad visual */
+}
+
+.tarjeta-actividad__contenido {
+    display: flex;
+    flex-direction: column;
+    padding: 1.25rem;
+    flex-grow: 1;
+}
+
+.tarjeta-actividad__etiqueta {
+    align-self: flex-start;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    background-color: #e6f4f1;
+    color: #2b7a78;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    margin-bottom: 0.75rem;
+}
+
+.tarjeta-actividad__titulo {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.tarjeta-actividad__descripcion {
+    font-size: 0.875rem;
+    color: #718096;
+    margin-bottom: 1.25rem;
+}
+
+.tarjeta-actividad__contenido .btn {
+    margin-top: auto;
+    align-self: flex-start;
+}
+/* ==========================================================================
+   7. LLAMADA A LA ACCIÓN / CTA (Mobile First - Flexbox)
+   ========================================================================== */
+.cta {
+    background-color: #2b7a78;
+    color: #ffffff;
+    text-align: center;
+}
+
+.cta__contenido {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.cta__titulo {
+    font-size: 1.65rem;
+    margin-bottom: 0.75rem;
+}
+
+.cta__descripcion {
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+    opacity: 0.9;
+}
+
+.cta__acciones {
+    display: flex;
+    justify-content: center;
+    gap: 0.75rem;
+    flex-wrap: wrap; /* Mantiene los botones adaptables en pantallas estrechas */
+}
+
+/* ==========================================================================
+   8. FOOTER (Mobile First - Flexbox)
+   ========================================================================== */
+.footer {
+    background-color: #1a202c;
+    color: #a0aec0;
+    padding: 2.5rem 1.25rem 1.5rem;
+}
+
+.footer__contenido {
+    display: flex;
+    flex-direction: column; /* Alineación vertical para dispositivos móviles */
+    align-items: center;
+    gap: 1.5rem;
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer__logo {
+    color: #ffffff;
+    font-size: 1.2rem;
+}
+
+.footer__eslogan {
+    font-size: 0.875rem;
+}
+
+.footer__lista {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.footer__creditos {
+    border-top: 1px solid #2d3748;
+    padding-top: 1.25rem;
+    width: 100%;
+    font-size: 0.8rem;
+}
+/* ==========================================================================
+   9. MEDIA QUERY (Mejora Progresiva para Pantallas Grandes)
+   ========================================================================== */
+@media (min-width: 768px) {
+    /* Reorganización del Header a fila horizontal */
+    .header {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 1.25rem 5%;
+    }
+
+    /* Reorganización del Hero a 2 columnas distribuidas */
+    .hero {
+        flex-direction: row;
+        padding: 4rem 5%;
+    }
+
+    .hero__contenido {
+        text-align: left;
+        flex: 1;
+    }
+
+    .hero__titulo {
+        font-size: 2.5rem;
+    }
+
+    .hero__acciones {
+        justify-content: flex-start;
+    }
+
+    .hero__imagen {
+        flex: 1;
+    }
+
+    /* Servicios pasa de 1 a 3 columnas simétricas con CSS Grid */
+    .servicios__contenedor {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    /* La tarjeta de actividad destacada toma espacio expandido en el Grid */
+    .tarjeta-actividad--destacada {
+        grid-column: span 2;
+    }
+
+    /* Footer reorganizado en horizontal */
+    .footer__contenido {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+/* ==========================================================================
+   10. INTERACCIONES VISUALES Y MICROINTERACCIONES
+   ========================================================================== */
+
+/* Transiciones en enlaces del Header y Footer */
+.nav__enlace,
+.footer__lista a {
+    transition: color 0.25s ease;
+}
+
+.nav__enlace:hover,
+.footer__lista a:hover {
+    color: #2b7a78;
+}
+
+/* Elevación e interacción en Botones */
+.btn {
+    transition: transform 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.btn--primario:hover,
+.btn--destacado:hover {
+    background-color: #1f5a58;
+}
+
+.btn--secundario:hover {
+    background-color: #cbd5e0;
+}
+
+.btn--linea:hover {
+    background-color: #ffffff;
+    color: #2b7a78;
+}
+
+/* Efecto de elevación (Hover Card) en Tarjetas de Servicios y Actividades */
+.tarjeta-servicio,
+.tarjeta-actividad {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tarjeta-servicio:hover,
+.tarjeta-actividad:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+}
+
+/* Zoom suave en la imagen al pasar el cursor por la tarjeta */
+.tarjeta-actividad__imagen {
+    overflow: hidden;
+}
+
+.tarjeta-actividad__imagen img {
+    transition: transform 0.4s ease;
+}
+
+.tarjeta-actividad:hover .tarjeta-actividad__imagen img {
+    transform: scale(1.05);
+}
+
+/* Accesibilidad: Respeta a usuarios que prefieren reducir el movimiento */
+@media (prefers-reduced-motion: reduce) {
+    .btn,
+    .nav__enlace,
+    .footer__lista a,
+    .tarjeta-servicio,
+    .tarjeta-actividad,
+    .tarjeta-actividad__imagen img {
+        transition: none;
+        transform: none;
+    }
+}
