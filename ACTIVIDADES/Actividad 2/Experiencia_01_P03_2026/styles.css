@@ -50,7 +50,7 @@ body {
 
 .nav {
   display: flex;
-  gap: 200px;
+  gap: 35px;
   white-space: nowrap;
   flex-wrap: wrap;
 }
@@ -75,6 +75,8 @@ body {
   display: flex;
   align-items: center;
   gap: 70px;
+
+  flex-direction: column;
 }
 
 .hero__texto {
