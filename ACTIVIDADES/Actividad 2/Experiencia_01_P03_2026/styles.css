@@ -78,9 +78,8 @@ body {
 }
 
 .hero__texto {
-  width: 510px;
+  flex: 1 1 0;
 }
-
 .etiqueta,
 .seccion-titulo > span {
   color: #168f7a;
@@ -131,7 +130,7 @@ body {
 
 /* Imagen deliberadamente rígida */
 .hero__imagen {
-  width: 600px;
+  flex: 1 1 0;
 }
 
 .hero__imagen img {
