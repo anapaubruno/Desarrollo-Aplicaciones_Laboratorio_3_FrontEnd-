@@ -163,9 +163,12 @@ body {
 }
 
 .tarjetas {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr;
   gap: 24px;
-  flex-direction: column;
+}
+.tarjeta--destacada {
+  grid-column: auto;
 }
 
 .tarjeta {
@@ -278,7 +281,10 @@ body {
     justify-content: space-between;
   }
   .tarjetas {
-    flex-direction: row;
+  grid-template-columns: repeat(3, 1fr);
+  }
+  .tarjeta--destacada {
+  grid-column: span 2;
   }
 }
 /*
