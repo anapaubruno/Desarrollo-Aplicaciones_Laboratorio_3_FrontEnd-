@@ -37,7 +37,7 @@ body {
   border-bottom: 1px solid #d9e2ec;
 
   flex-direction: column;
-
+  align-items: flex-start;
 }
 
 .logo {
@@ -269,6 +269,12 @@ body {
   .hero {
     flex-direction: row;
     align-items: center;
+  }
+
+  .header {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
   }
 }
 /*
